@@ -12,7 +12,7 @@ var VenueModel = function(data) {
     this.imgSuffix = data.venue.categories[0].icon.suffix;
 	
 	// Handle undefined data and reformating the text
-	this.url = this.getUrl(data);
+	// this.url = this.getUrl(data);
 	this.rating = this.getRating(data);
 	this.formattedPhone = this.getFormattedPhone(data);
 	this.imgSrc = this.getImgSrc(data);
@@ -22,13 +22,13 @@ var VenueModel = function(data) {
 // Credit by lei-clearsky github
 VenueModel.prototype = {
 
-	getUrl: function(data) {
+/*	getUrl: function(data) {
 		if(!data.venue.url) {
 			return 'No Website!';
 		} else {
 			return data.venue.url;
 		}
-	},
+	}, */
 
 	getImgSrc: function(data) {
 		return this.imgPrefix + 'bg_64' + this.imgSuffix;
@@ -148,7 +148,7 @@ var AppViewModel = function() {
 				var name = fourSquareData[i].venue.name;
 				var formattedAddress = fourSquareData[i].venue.location.formattedAddress;
 				var formattedPhone = fourSquareData[i].venue.contact.formattedPhone;
-				var url = fourSquareData[i].venue.url;
+				// var url = fourSquareData[i].venue.url;
 				var rating = fourSquareData[i].venue.rating;
 				var categories = fourSquareData[i].venue.categories[0].name;
 				// Get the lat position from the FourSquare API
@@ -168,7 +168,7 @@ var AppViewModel = function() {
 					phone: formattedPhone,
 					address: formattedAddress,
 					rating: rating,
-					url: url,
+					// url: url,
 					map: map,
 					animation: google.maps.Animation.DROP
 				});
