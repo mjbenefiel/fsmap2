@@ -1,8 +1,4 @@
-/* ========= Model ========= */ 
-
 // The Venue model that initialize and store venue information of the place 
-// Constructor uses ko.observable so view is automatically updated
-// https://discussions.udacity.com/t/having-trouble-accessing-data-outside-an-ajax-request/39072/10
 var VenueModel = function(data) {
 	this.id = data.venue.id;
 	this.name = data.venue.name;
@@ -28,7 +24,7 @@ VenueModel.prototype = {
 
 	getUrl: function(data) {
 		if(!data.venue.url) {
-			return 'Website Not Available';
+			return 'No Website!';
 		} else {
 			return data.venue.url;
 		}
@@ -47,10 +43,10 @@ VenueModel.prototype = {
 	},
 
 	getRating: function(data) {
-		if(!data.venue.rating) {
-			return '0.0';
-		} else {
+		if(data.venue.rating) {
 			return data.venue.rating;
+		} else {
+			return '0.0'; 
 		}
 	}
 
@@ -317,7 +313,7 @@ var AppViewModel = function() {
 		}
 
 		if(!marker.rating) {
-			$('.venueRating').replaceWith('<span class="venueRating right"><i class="icon-star" aria-hidden="true"></i> 0.0</span>');
+			$('.venueRating').replaceWith('<span class="venueRating right"><i class="icon-star" aria-hidden="true"></i> 0.0 </span>');
 		}
 	}
 
