@@ -1,3 +1,32 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyByhoTt8328-LLyBQodXkChc_bw20WkuFA",
+    authDomain: "whattodo-4f13b.firebaseapp.com",
+    databaseURL: "https://whattodo-4f13b.firebaseio.com",
+    projectId: "whattodo-4f13b",
+    storageBucket: "whattodo-4f13b.appspot.com",
+    messagingSenderId: "660573364704"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  var venueSearch = "";
+
+  $(".btn-primary").on("click", function() {
+	//   event.preventDefault();
+	  venueSearch = $("#search-venues").val().trim();
+
+	  database.ref().set({
+		  venueSearch: venueSearch,
+	  });
+  });
+
+  database.ref().on("value", function(snapshot) {
+	  console.log(snapshot.val().venueSearch);
+  }, function(errorObject) {
+	  console.log("The read failed: " + errorObject.code);
+  }); 
+
 // The Venue model that initialize and store venue information of the place 
 var VenueModel = function(data) {
 	this.id = data.venue.id;
@@ -12,7 +41,7 @@ var VenueModel = function(data) {
     this.imgSuffix = data.venue.categories[0].icon.suffix;
 	
 	// Handle undefined data and reformating the text
-	// this.url = this.getUrl(data);
+	this.url = this.getUrl(data);
 	this.rating = this.getRating(data);
 	this.formattedPhone = this.getFormattedPhone(data);
 	this.imgSrc = this.getImgSrc(data);
@@ -22,13 +51,13 @@ var VenueModel = function(data) {
 // Credit by lei-clearsky github
 VenueModel.prototype = {
 
-/*	getUrl: function(data) {
+	getUrl: function(data) {
 		if(!data.venue.url) {
 			return 'No Website!';
 		} else {
 			return data.venue.url;
 		}
-	}, */
+	},
 
 	getImgSrc: function(data) {
 		return this.imgPrefix + 'bg_64' + this.imgSuffix;
@@ -123,8 +152,8 @@ var AppViewModel = function() {
 	self.searchVenueLocations = function() {
 
 		var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
-		var fourSquareID = 'client_id=3WGCKMH3NXD5RVW51I5RNJDKVKUZTSTA5LB5CPCJKMSYKGVY&client_secret=XKIVTMCYNF5FFQ21VTFGBY1QXDPXFBC30WNDAJ2E01TLLJC3&v=20170604'
-		
+		var fourSquareID = 'oauth_token=OURA43UOIOFTEOYFLGPFPK30IA2UQK2DN4JRCQBQGYODNLUL&v=20180710'
+		/*'client_id=3WGCKMH3NXD5RVW51I5RNJDKVKUZTSTA5LB5CPCJKMSYKGVY&client_secret=XKIVTMCYNF5FFQ21VTFGBY1QXDPXFBC30WNDAJ2E01TLLJC3&v=20170604'*/
 		var limitSearch = "&limit=" + 20;
 		var location = "&near=kansas city";
 		var radius = "&radius=" + 600;
@@ -148,7 +177,7 @@ var AppViewModel = function() {
 				var name = fourSquareData[i].venue.name;
 				var formattedAddress = fourSquareData[i].venue.location.formattedAddress;
 				var formattedPhone = fourSquareData[i].venue.contact.formattedPhone;
-				// var url = fourSquareData[i].venue.url;
+				var url = fourSquareData[i].venue.url;
 				var rating = fourSquareData[i].venue.rating;
 				var categories = fourSquareData[i].venue.categories[0].name;
 				// Get the lat position from the FourSquare API
@@ -168,7 +197,7 @@ var AppViewModel = function() {
 					phone: formattedPhone,
 					address: formattedAddress,
 					rating: rating,
-					// url: url,
+					url: url,
 					map: map,
 					animation: google.maps.Animation.DROP
 				});
@@ -214,7 +243,7 @@ var AppViewModel = function() {
 
 		var contentString = '<div class="venue-infowindow">' + '<div class="venueName">' + marker.name + '<span class="venueRating right"><i class="icon-star" aria-hidden="true"> ' + marker.rating + '</i></span></div>' +
 							  '<div class="venueCategories"><i class="icon-tags" aria-hidden="true"></i> ' + marker.categories + '</div>' + '<div class="venueAddress"><i class="icon-map-marker" aria-hidden="true"></i> ' + marker.address + '</div>' +
-							  '<br><div id="pano"></div></div>';  
+							  '<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></i> ' + marker.phone + '</div>' + '<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i> ' + '<a href=' + marker.url + ' target="_blank">' + marker.url + '</a></div>' + '<br><div id="pano"></div></div>';  
 
 		// Check to make sure the infowindow is not already opened on this marker.														   
 		if(infowindow.marker != marker) {
@@ -302,20 +331,20 @@ var AppViewModel = function() {
     };
 
 	// This function will handle undefined data and reformatting the htmlString
-function handleVenueDataError(marker) {
+	function handleVenueDataError(marker) {
 
-		/* if(!marker.url) {
-			$('.venueUrl').replaceWith('<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i></div>');
-		} */
+		if(!marker.url) {
+			$('.venueUrl').replaceWith('<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i> Website Not Available</div>');
+		}
 
-		/*if(!marker.phone) {
-			$('.venuePhone').replaceWith('<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></></div>');
-		} */
+		if(!marker.phone) {
+			$('.venuePhone').replaceWith('<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></i> Phone Not Available</div>');
+		}
 
-		/* if(!marker.rating) {
+		if(!marker.rating) {
 			$('.venueRating').replaceWith('<span class="venueRating right"><i class="icon-star" aria-hidden="true"></i> 0.0 </span>');
-		} */
- }
+		}
+	}
 
 	// This function will make the marker bounce when you click on them
 	function toggleBounce(marker) {
