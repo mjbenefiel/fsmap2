@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <meta name="description" content="Neighborhood Map">
-  <meta name="author" content="Nick Lim">
+  <meta name="description" content="Group Proejct 1">
+  <meta name="author" content="KU Coding Boot Camp">
   <title>What to do?</title>
 
   <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"> 
@@ -20,19 +20,28 @@
   <![endif]-->
 </head>
 <body> 
+
   <!-- Google Maps -->
   <div id="googleMap-Error"></div>
   <div id="map-canvas"></div>
-  <form data-bind="submit: searchVenueLocations" class="search-container">
-    <span class="search-text">Find</span>
-    <input data-bind="value: exploreInputSearch" type="text" placeholder="I'm looking for Restaurants, Hotels & Bars" id="search-venues" class="search-input" maxlength="25"> 
-    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-    <p class="fourSquareData-Error"></p>
-  </form>
+  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+
+        
   <div class="showList-btn-container">
     <h4 class="city-text">Kansas City</h4>
     <button data-bind="click: toggleList" class="btn btn-secondary btn-md" id="showList-button"><span data-bind="css: {'icon-minus': displayVenuesList(), 'icon-plus': !displayVenuesList()}"></span></button>
   </div>
+
+  <div class="md1-layout__header-row">
+      <span class="mdl-layout-title">Kansas City</span>
+<form data-bind="submit: searchVenueLocations" class="search-container">
+
+<input data-bind="value: exploreInputSearch" type="text" placeholder="I'm looking for Restaurants, Hotels & Bars" id="search-venues" class="search-input" maxlength="25"> 
+<button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+<p class="fourSquareData-Error"></p>
+</form>
+
   <div data-bind="visible: displayVenuesList" class="showList-container">
     <input data-bind="value: filter, valueUpdate: 'afterkeydown'" type="text" placeholder="Filter Search" id="filter-search" maxlength="25"> 
     <div data-bind="foreach: filterResults" class="list-group">

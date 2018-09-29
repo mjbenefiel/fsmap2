@@ -68,6 +68,37 @@ var AppViewModel = function() {
 	var markers = [];
 
 	var infoWindow = new google.maps.InfoWindow();
+	var styles = [{
+        "featureType": "all",
+        "elementType": "all",
+        "stylers": [{
+                "invert_lightness": true
+            },
+            {
+                "saturation": 10
+            },
+            {
+                "lightness": 40
+            },
+            {
+                "gamma": 0.6
+            },
+            {
+                "hue": "#584d9f"
+            }
+        ]
+    }];
+  
+    //initiate the map
+    map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: {
+            lat: 39.110298,
+            lng: -94.581078,
+        },
+        styles: styles,
+        zoom: 12,
+        mapTypeId: 'roadmap'
+    });
 
 	// Creates an observable array to find various locations.
     self.locationList = ko.observableArray([]); 
@@ -79,11 +110,11 @@ var AppViewModel = function() {
     self.filter = ko.observable('');
 
     // Style the markers a bit. This will be our listing marker icon.
-    var defaultIcon = makeMarkerIcon('F62217');
+    var defaultIcon = makeMarkerIcon('00bbb3');
 
     // Create a "highlighted location" marker color for when the user
     // mouses over the marker.
-    var highlightedIcon = makeMarkerIcon('0091ff');
+    var highlightedIcon = makeMarkerIcon('ea1d75');
 
 	// Initially blank input
 	self.exploreInputSearch = ko.observable(''); 
