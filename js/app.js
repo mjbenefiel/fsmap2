@@ -214,7 +214,7 @@ var AppViewModel = function() {
 
 		var contentString = '<div class="venue-infowindow">' + '<div class="venueName">' + marker.name + '<span class="venueRating right"><i class="icon-star" aria-hidden="true"> ' + marker.rating + '</i></span></div>' +
 							  '<div class="venueCategories"><i class="icon-tags" aria-hidden="true"></i> ' + marker.categories + '</div>' + '<div class="venueAddress"><i class="icon-map-marker" aria-hidden="true"></i> ' + marker.address + '</div>' +
-							  '<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></i> ' + marker.phone + '</div>' + '<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i> ' + '<a href=' + marker.url + ' target="_blank">' + marker.url + '</a></div>' + '<br><div id="pano"></div></div>';  
+							  '<br><div id="pano"></div></div>';  
 
 		// Check to make sure the infowindow is not already opened on this marker.														   
 		if(infowindow.marker != marker) {
@@ -302,20 +302,20 @@ var AppViewModel = function() {
     };
 
 	// This function will handle undefined data and reformatting the htmlString
-	function handleVenueDataError(marker) {
+function handleVenueDataError(marker) {
 
-		if(!marker.url) {
-			$('.venueUrl').replaceWith('<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i> Website Not Available</div>');
-		}
+		/* if(!marker.url) {
+			$('.venueUrl').replaceWith('<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i></div>');
+		} */
 
-		if(!marker.phone) {
-			$('.venuePhone').replaceWith('<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></i> Phone Not Available</div>');
-		}
+		/*if(!marker.phone) {
+			$('.venuePhone').replaceWith('<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></></div>');
+		} */
 
-		if(!marker.rating) {
+		/* if(!marker.rating) {
 			$('.venueRating').replaceWith('<span class="venueRating right"><i class="icon-star" aria-hidden="true"></i> 0.0 </span>');
-		}
-	}
+		} */
+ }
 
 	// This function will make the marker bounce when you click on them
 	function toggleBounce(marker) {
@@ -386,6 +386,5 @@ function initMap() {
 function googleMapError() {
     alert("Google Has Encountered An Error.  Please Try Again Later");
 }
-
 
 
