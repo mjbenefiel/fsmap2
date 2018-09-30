@@ -31,7 +31,7 @@ var config = {
 var VenueModel = function(data) {
 	this.id = data.venue.id;
 	this.name = data.venue.name;
-	this.stats = data.venue.stats.checkinsCount + " check ins";
+	this.stats = data.venue.stats.checkinsCount + " all-time checkins";
 	this.formattedAddress = data.venue.location.formattedAddress;
 	this.categories = data.venue.categories[0].name;
 	this.lat = data.venue.location.lat;
@@ -253,7 +253,7 @@ var AppViewModel = function() {
 	function setVenueInfoWindow(marker, infowindow) {
 
 		var contentString = '<div class="venue-infowindow">' + '<div class="venueName">' + marker.name + '<span class="venueRating right"><i class="icon-star" aria-hidden="true"> ' + marker.rating + '</i></span></div>' +
-							  '<div class="venueCategories"><i class="icon-tags" aria-hidden="true"></i> ' + marker.categories + '</div>' +'<div class="venueCategories"><i class="icon-check" aria-hidden="true"></i> ' + marker.stats + " check ins" + '</i></span></div>' + '<div class="venueAddress"><i class="icon-map-marker" aria-hidden="true"></i> ' + marker.address + '</div>' +
+							  '<div class="venueCategories"><i class="icon-tags" aria-hidden="true"></i> ' + marker.categories + '</div>' +'<div class="venueCategories"><i class="icon-check" aria-hidden="true"></i> ' + marker.stats + " all-time checkins" + '</i></span></div>' + '<div class="venueAddress"><i class="icon-map-marker" aria-hidden="true"></i> ' + marker.address + '</div>' +
 							  '<div class="venuePhone"><i class="icon-phone" aria-hidden="true"></i> ' + marker.phone + '</div>' + '<div class="venueUrl"><i class="icon-globe" aria-hidden="true"></i> ' + '<a href=' + marker.url + ' target="_blank">' + marker.url + '</a></div>' + '<br><div id="pano"></div></div>';  
 
 		// Check to make sure the infowindow is not already opened on this marker.														   
