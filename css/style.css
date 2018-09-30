@@ -66,6 +66,13 @@ html, body {
 	margin-right: 10%
 }
 
+.wtd {
+	color: white;
+	font-weight: 700;
+	opacity: .8;
+	margin-left: 25px;
+}
+
 /* ===== Filter Keywords ===== */
 #filter-search {
 	background-color: #3e3f3f98;
