@@ -31,6 +31,7 @@ var config = {
 var VenueModel = function(data) {
 	this.id = data.venue.id;
 	this.name = data.venue.name;
+	this.name1 = data.venue.stats.checkinsCount + " check ins";
 	this.formattedAddress = data.venue.location.formattedAddress;
 	this.categories = data.venue.categories[0].name;
 	this.lat = data.venue.location.lat;
@@ -415,5 +416,3 @@ function initMap() {
 function googleMapError() {
     alert("Google Has Encountered An Error.  Please Try Again Later");
 }
-
-
