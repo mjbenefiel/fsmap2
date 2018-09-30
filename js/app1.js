@@ -143,14 +143,13 @@ var AppViewModel = function() {
     var highlightedIcon = makeMarkerIcon('ea1d75');
 
 	// Initially blank input
-	self.exploreInputSearch = ko.observable(''); 
 	self.exploreNightlifeSearch = ko.observable('church'); 
 	/* This will perform the search queries of a venue location and
 	*  also create Venue markers on map with all the necessary data
     *  when this venue marker click, it will open the infowindow, set the marker
     *  bounce and move to the center of the venue marker that have been clicked
     */
-	self.searchVenueLocations = function() {
+	self.searchNightlifeLocations = function() {
 
 		var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
 		var fourSquareID = 'oauth_token=OURA43UOIOFTEOYFLGPFPK30IA2UQK2DN4JRCQBQGYODNLUL&v=20180710'
@@ -159,7 +158,7 @@ var AppViewModel = function() {
 		var location = "&near=kansas city";
 		var radius = "&radius=" + 600;
 		// This will query the venues from the input 
-		var query = "&query=" + self.exploreInputSearch();
+		var query = "&query=" + self.exploreNightlifeSearch();
 		var fullUrl = fourSquareUrl + fourSquareID + location + limitSearch + radius + query;
 
 		clearMarkers();
@@ -238,7 +237,7 @@ var AppViewModel = function() {
 	};
 
 	// Will perform the search when visiting the page
-	self.searchVenueLocations();
+	self.searchNightlifeLocations();
 	
 	
 	//////////////////////////

@@ -66,6 +66,16 @@ html, body {
 	margin-right: 10%
 }
 
+#nightlife-button {
+	display: flex;
+	background-color: #00bbb3;
+	padding: 15px 10px;
+	margin: 0 auto;
+	
+	
+}
+
+
 .wtd {
 	color: white;
 	font-weight: 700;
@@ -104,11 +114,31 @@ html, body {
 
 }
 
+.showList-btn-container1 {
+	background-color: #888;
+	opacity: .8;
+	color: white;
+	position: absolute;
+	z-index: 1;
+	left: 30px; 
+	top: 540px;
+	width: 25%;
+	height: 80px;
+	padding: 10px;
+
+}
+
 .list-group-item {
 	background-color: #FFF;
 }
 
 .city-text { 
+	display: inline;
+	font-size: 1.25em;
+
+}
+
+.city-text1 { 
 	display: inline;
 	font-size: 1.25em;
 
