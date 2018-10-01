@@ -19,16 +19,19 @@
   <div id="googleMap-Error"></div>
   <div id="map-canvas"></div>
 
-  <div class="showList-btn-container">
-    <h4 class="city-text">Kansas City</h4>
+  <!-- <div class="showList-btn-container"> -->
+    <!-- <h4 class="city-text">Kansas City</h4> -->
+    <!-- <button id="submit-button" type="submit" class="btn btn-primary">Submit</button> -->
+    <!-- <input data-bind="value: exploreLocationSearch" type="text" placeholder="Enter your city" id="search-venues" class="search-input" maxlength="25"> -->
     <!-- <button data-bind="click: toggleList" class="btn btn-secondary btn-md" id="showList-button"><span data-bind="css: {'icon-minus': displayVenuesList(), 'icon-plus': !displayVenuesList()}"></span></button> -->
-  </div>
+  <!-- </div> -->
  
   <div class="md1-layout-spacer">
       <span class="mdl-layout-title">Kansas City</span>
 <form data-bind="submit: searchVenueLocations" class="search-container">
-    <span class="mdl-layout-title wtd">whatToDo App</span>
+    <span class="mdl-layout-title wtd">whatToDo App | Global </span>
     <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+    <input data-bind="value: exploreLocationSearch" type="text" placeholder="...In this city" id="search-venues" class="search-input" maxlength="25">
 <input data-bind="value: exploreInputSearch" type="text" placeholder="I'm looking for..." id="search-venues" class="search-input" maxlength="25"> 
 
 <p class="fourSquareData-Error"></p>
@@ -61,7 +64,7 @@
   </div>
 <form databind ="submit: searchVenueLocations">
   <div class="showList-btn-container1">
-      <button id="nightlife-button" type="submit" class="btn btn-primary">Refresh Recommendations</button>
+      <button id="nightlife-button" type="submit" class="btn btn-primary">Refresh Search</button>
       
     </div>
   </form>

@@ -22,10 +22,12 @@ var config = {
   });
 
   database.ref().on("value", function(snapshot) {
-	  console.log(snapshot.val().venueSearch);
+	// console.log(snapshot.val().venueSearch);
   }, function(errorObject) {
 	  console.log("The read failed: " + errorObject.code);
   }); 
+
+  //end Firebase
 
 // The Venue model that initialize and store venue information of the place 
 var VenueModel = function(data) {
@@ -118,11 +120,11 @@ var AppViewModel = function() {
     //initiate the map
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {
-            lat: 39.110298,
+			lat: 39.110298,
             lng: -94.581078,
         },
         styles: styles,
-        zoom: 12,
+        zoom: 2,
         mapTypeId: 'roadmap'
     });
 
@@ -144,7 +146,8 @@ var AppViewModel = function() {
 
 	// Initially blank input
 	self.exploreInputSearch = ko.observable(''); 
-	self.exploreNightlifeSearch = ko.observable('church'); 
+	self.exploreLocationSearch = ko.observable('');
+	// self.exploreNightlifeSearch = ko.observable('church'); 
 	/* This will perform the search queries of a venue location and
 	*  also create Venue markers on map with all the necessary data
     *  when this venue marker click, it will open the infowindow, set the marker
@@ -156,7 +159,7 @@ var AppViewModel = function() {
 		var fourSquareID = 'oauth_token=OURA43UOIOFTEOYFLGPFPK30IA2UQK2DN4JRCQBQGYODNLUL&v=20180710'
 		/*'client_id=3WGCKMH3NXD5RVW51I5RNJDKVKUZTSTA5LB5CPCJKMSYKGVY&client_secret=XKIVTMCYNF5FFQ21VTFGBY1QXDPXFBC30WNDAJ2E01TLLJC3&v=20170604'*/
 		var limitSearch = "&limit=" + 20;
-		var location = "&near=kansas city";
+		var location = "&near=" + self.exploreLocationSearch();
 		var radius = "&radius=" + 600;
 		// This will query the venues from the input 
 		var query = "&query=" + self.exploreInputSearch();
@@ -233,7 +236,7 @@ var AppViewModel = function() {
 
 		}).fail(function(e) {
 			infoWindow.setContent('<div class="error-infowindow">FourSquare Data Not Available. Please try to refresh the page</div>');
-			$('.fourSquareData-Error').text("Failed to load FourSquareData. Please try to refresh the page");
+			$('.fourSquareData-Error').text("*");
 		});
 	};
 
@@ -412,7 +415,7 @@ var AppViewModel = function() {
 function initMap() {
 	var mapOptions = {
 		zoom: 14,
-		center: {lat: 54.596724, lng: -5.930082},
+		center: {lat: 39.110298, lng: -94.581078,},
 		disableDefaultUI: true
 	};
 
