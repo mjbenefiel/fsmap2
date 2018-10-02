@@ -29,7 +29,7 @@ var config = {
 
   //end Firebase
 
-// The Venue model that initialize and store venue information of the place 
+// Initialize VenueModel to store venue information of place 
 var VenueModel = function(data) {
 	this.id = data.venue.id;
 	this.name = data.venue.name;
@@ -39,7 +39,7 @@ var VenueModel = function(data) {
 	this.lat = data.venue.location.lat;
 	this.lng = data.venue.location.lng;
 	this.marker = new google.maps.Marker({});
-	// Get image for fourSquare
+	// fourSquare Images
 	this.imgPrefix = data.venue.categories[0].icon.prefix;
     this.imgSuffix = data.venue.categories[0].icon.suffix;
 	
@@ -51,7 +51,6 @@ var VenueModel = function(data) {
 
 };
 
-// Credit by lei-clearsky github
 VenueModel.prototype = {
 
 	getUrl: function(data) {
@@ -84,9 +83,7 @@ VenueModel.prototype = {
 
 };
 
-/* ========= ViewModel ========= */
-
-// This AppViewModel function expression is used inside to bind the HTML
+// Function used to bind the HTML
 var AppViewModel = function() {
 	var self = this;
 
@@ -117,7 +114,7 @@ var AppViewModel = function() {
         ]
     }];
   
-    //initiate the map
+    //Initiate GoogleMaps
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {
 			lat: 39.110298,
@@ -147,7 +144,6 @@ var AppViewModel = function() {
 	// Initially blank input
 	self.exploreInputSearch = ko.observable(''); 
 	self.exploreLocationSearch = ko.observable('');
-	// self.exploreNightlifeSearch = ko.observable('church'); 
 	/* This will perform the search queries of a venue location and
 	*  also create Venue markers on map with all the necessary data
     *  when this venue marker click, it will open the infowindow, set the marker
@@ -243,15 +239,6 @@ var AppViewModel = function() {
 	// Will perform the search when visiting the page
 	self.searchVenueLocations();
 	
-	
-	//////////////////////////
-
-	
-
-	
-
-	////////////////////////
-
 	// This function creates the infowindow when the individual marker is clicked. 
 	function setVenueInfoWindow(marker, infowindow) {
 

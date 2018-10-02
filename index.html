@@ -1,86 +1,74 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="description" content="Group Project 1">
-  <link rel="shortcut icon" type="image/png" href="img/icon/favicon-16x16.png"/>
-  <title>whatToDo?</title>
-  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"> 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
-  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Group Project 1">
+    <link rel="shortcut icon" type="image/png" href="img/icon/favicon-16x16.png" />
+    <title>whatToDo?</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
 
 </head>
-<body> 
 
-  <!-- Google Maps -->
-  <div id="googleMap-Error"></div>
-  <div id="map-canvas"></div>
+<body>
 
-  <!-- <div class="showList-btn-container"> -->
-    <!-- <h4 class="city-text">Kansas City</h4> -->
-    <!-- <button id="submit-button" type="submit" class="btn btn-primary">Submit</button> -->
-    <!-- <input data-bind="value: exploreLocationSearch" type="text" placeholder="Enter your city" id="search-venues" class="search-input" maxlength="25"> -->
-    <!-- <button data-bind="click: toggleList" class="btn btn-secondary btn-md" id="showList-button"><span data-bind="css: {'icon-minus': displayVenuesList(), 'icon-plus': !displayVenuesList()}"></span></button> -->
-  <!-- </div> -->
- 
-  <div class="md1-layout-spacer">
-      <span class="mdl-layout-title">Kansas City</span>
-<form data-bind="submit: searchVenueLocations" class="search-container">
-    <span class="mdl-layout-title wtd">whatToDo App | Global </span>
-    <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
-    <input data-bind="value: exploreLocationSearch" type="text" placeholder="...in this city" id="search-venues" class="search-input" maxlength="25"> 
-    <input data-bind="value: exploreInputSearch" type="text" placeholder="I'm looking for..." id="search-venues" class="search-input1" maxlength="25">
+    <!-- Google Maps -->
+    <div id="googleMap-Error"></div>
+    <div id="map-canvas"></div>
 
+    <div class="md1-layout-spacer">
+        <span class="mdl-layout-title">Kansas City</span>
+        <form data-bind="submit: searchVenueLocations" class="search-container">
+            <span class="mdl-layout-title wtd">whatToDo App | Global </span>
+            <button id="submit-button" type="submit" class="btn btn-primary">Submit</button>
+            <input data-bind="value: exploreLocationSearch" type="text" placeholder="...in this city" id="search-venues" class="search-input" maxlength="25">
+            <input data-bind="value: exploreInputSearch" type="text" placeholder="I'm looking for..." id="search-venues" class="search-input1" maxlength="25">
+            <!-- <p class="fourSquareData-Error"></p> -->
+        </form>
 
-<!-- <p class="fourSquareData-Error"></p> -->
-</form>
-
-</div>
-
-
-  <div data-bind="visible: displayVenuesList" class="showList-container">
-   <!-- <input data-bind="value: filter, valueUpdate: 'afterkeydown'" type="text" placeholder="Search our recommendations for you" id="filter-search" maxlength="25">  -->
-    <div data-bind="foreach: filterResults" class="list-group">
-      <div data-bind="click: $root.panToMarker" class="list-group-item list-group-item-action flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">      
-          <h6 data-bind="text: name" class="venue-name mb-1"></h6>          
-          <small data-bind="text: rating" class="venue-rating"></small>
-         </div>
-        <div class="content">
-          <div class="left-text">
-            <p data-bind="text: categories" class="venue-categories mb-1"></p>
-            <p data-bind="text: stats" class="venue-categories mb-1"></p>
-            <p data-bind="text: formattedAddress" class="venue-address mb-1"></p>            
-            <p data-bind="text: formattedPhone" class="venue-phone mb-1"></p>          
-            <p data-bind="text: url" class="venue-url mb-1"></p>
-          </div>
-          <div class="right-img">
-            <img class="venue-img" data-bind="attr {'src': imgSrc}">
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <form databind ="submit: searchVenueLocations" class="search-container1">
-  
-      <button id="nightlife-button" type="submit" class="btn btn-primary"><i class="icon-refresh" aria-hidden="true"></i></button>
-      
-    
-  </form>
 
-    
+    <div data-bind="visible: displayVenuesList" class="showList-container">
+        <div data-bind="foreach: filterResults" class="list-group">
+            <div data-bind="click: $root.panToMarker" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h6 data-bind="text: name" class="venue-name mb-1"></h6>
+                    <small data-bind="text: rating" class="venue-rating"></small>
+                </div>
+                <div class="content">
+                    <div class="left-text">
+                        <p data-bind="text: categories" class="venue-categories mb-1"></p>
+                        <p data-bind="text: stats" class="venue-categories mb-1"></p>
+                        <p data-bind="text: formattedAddress" class="venue-address mb-1"></p>
+                        <p data-bind="text: formattedPhone" class="venue-phone mb-1"></p>
+                        <p data-bind="text: url" class="venue-url mb-1"></p>
+                    </div>
+                    <div class="right-img">
+                        <img class="venue-img" data-bind="attr {'src': imgSrc}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form databind="submit: searchVenueLocations" class="search-container1">
 
+        <button id="nightlife-button" type="submit" class="btn btn-primary"><i class="icon-refresh" aria-hidden="true"></i></button>
 
-<!-- JS Files -->
-  <script type="text/javascript" src="js/jQuery.js"></script>
-  <script type="text/javascript" src="js/lib/knockout-3.2.0.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  
-   <!-- Load the Google Maps API-->
-  <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQT0CYAfvFYmLmLJcgLAzM5cQ0a3iTseE&v=3&callback=initMap" onerror="googleMapError()"></script> 
-  
+    </form>
+
+    <!-- JS Files -->
+    <script type="text/javascript" src="js/jQuery.js"></script>
+    <script type="text/javascript" src="js/lib/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <!-- Load GoogleMaps API-->
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQT0CYAfvFYmLmLJcgLAzM5cQ0a3iTseE&v=3&callback=initMap" onerror="googleMapError()"></script>
+
 </body>
+
 </html>
