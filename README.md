@@ -24,48 +24,48 @@ Knockout-3.2.0.js
 
 Firebase 5.5.2
 
-Initialize Firebase
+- Initialize Firebase
 
   - Log search terms entered
 
-Initialize VenueModel to store venue information of place
+- Initialize VenueModel to store venue information of place
 
-If/else statements to return specific message if there's no website, phone or rating for a venue
+- If/else statements to return specific message if there's no website, phone or rating for a venue
 
-AppViewModel is used to bind data to HTML and set styling of map
+- AppViewModel is used to bind data to HTML and set styling of map
 
-Initiate GoogleMaps -- Zoom set to "2" so that it has a global view
+- Initiate GoogleMaps -- Zoom set to "2" so that it has a global view
 
-Various KO observable arrays for finding and displaying data
+- Various KO observable arrays for finding and displaying data
 
-searchVenueLocations performs search queries of venue location by calling FourSquare API. GoogeMaps markers are also bound within this function.
+- searchVenueLocations performs search queries of venue location by calling FourSquare API. GoogeMaps markers are also bound within this function.
 
-Search queries set to &near= exploreLocationSearch(); to allow a user to search for any location within the FourSquare API
+- Search queries set to &near= exploreLocationSearch(); to allow a user to search for any location within the FourSquare API
 
-For loop for looping through fourSquareData
+- For loop for looping through fourSquareData
 
-marker object set to bind all data within infoWindow
+- marker object set to bind all data within infoWindow
 
-addListeners for infoWindow -- click, mouseover, mouseout
+- addListeners for infoWindow -- click, mouseover, mouseout
 
-Suggested LL bounds for GoogleMaps API -- sets bounds according to FourSquare data response
+- Suggested LL bounds for GoogleMaps API -- sets bounds according to FourSquare data response
 
-contentString binds all data into HTML for display when individual marker is clicked
+- contentString binds all data into HTML for display when individual marker is clicked
 
-streetViewService variable declared so infoWindow contains Google Street Views
+- streetViewService variable declared so infoWindow contains Google Street Views
 
-getStreetView function displays the Google Street Views within infoWindow -- sets it to the contentString
+- getStreetView function displays the Google Street Views within infoWindow -- sets it to the contentString
 
-Filter array to filter locations
+- Filter array to filter locations
 
-panToMarker function that pans to the marker and location on click 
+- panToMarker function that pans to the marker and location on click 
 
-function that handles data errors -- URL, Phone and Rating message
+- function that handles data errors -- URL, Phone and Rating message
 
-toggleBounce function that toggles marker on click
+- toggleBounce function that toggles marker on click
 
-Clear and reset marker arrays
+- Clear and reset marker arrays
 
-Set marker colors
+- Set marker colors
 
-openInfoWindow function
+- openInfoWindow function
