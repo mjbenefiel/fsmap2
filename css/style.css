@@ -175,7 +175,7 @@ html, body {
 }
 
 .showList-container {
-	background-color: #09918a;
+	/* background-color: #09918a; */
 	opacity: .8;
 	color: white;
 	overflow: auto;

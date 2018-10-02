@@ -132,7 +132,7 @@ var AppViewModel = function() {
     self.locationList = ko.observableArray([]); 
 
     // Boolean value for displaying venues list of location
-    self.displayVenuesList = ko.observable('true');
+    self.displayVenuesList = ko.observable('false');
 
     // Initially blank input
     self.filter = ko.observable('');
