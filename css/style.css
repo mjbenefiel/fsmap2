@@ -36,6 +36,18 @@ html, body {
 	width: 100%;
 }
 
+.search-container1 {
+	position: absolute;
+	background-color: rgb(74, 90, 141);
+	z-index: 2;
+	right: 0; 
+	top: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-right: 5%;
+	width: 1px;
+}
+
 .search-text {
 	position: relative;
 	top: 2px;
@@ -59,6 +71,7 @@ html, body {
 	height: 38px;
 }
 
+
 #submit-button {
 	background-color: #00bbb3;
 	float: right;
@@ -67,11 +80,10 @@ html, body {
 }
 
 #nightlife-button {
-	display: flex;
 	background-color: #00bbb3;
-	padding: 15px 10px;
-	margin: 0 auto;
-	
+	float: right;
+	padding: 5px 10px;
+	margin-right: 5%
 	
 }
 
