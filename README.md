@@ -32,7 +32,7 @@ Firebase 5.5.2
 
 - If/else statements to return specific message if there's no website, phone or rating for a venue
 
-- AppViewModel is used to bind data to HTML and set styling of map
+- AppViewModel performs nearly all functionality of app
 
 - Initiate GoogleMaps -- Zoom set to "2" so that it has a global view
 
