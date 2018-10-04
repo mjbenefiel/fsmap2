@@ -144,11 +144,7 @@ var AppViewModel = function() {
 	// Initially blank input
 	self.exploreInputSearch = ko.observable(''); 
 	self.exploreLocationSearch = ko.observable('');
-	/* This will perform the search queries of a venue location and
-	*  also create Venue markers on map with all the necessary data
-    *  when this venue marker click, it will open the infowindow, set the marker
-    *  bounce and move to the center of the venue marker that have been clicked
-    */
+
 	self.searchVenueLocations = function() {
 
 		var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
@@ -168,7 +164,6 @@ var AppViewModel = function() {
 
 		// Retrieves JSON data from the FourSquare API.
 		$.getJSON(fullUrl, function(data) {
-			// Can be find after ajax successfully called the URL in the GoogleDevTol in Network section (FourSquare API)
 			var fourSquareData = data.response.groups[0].items;
 
 			for (var i = 0; i < fourSquareData.length; i++) {
@@ -259,9 +254,6 @@ var AppViewModel = function() {
 
 			var streetViewService = new google.maps.StreetViewService();
 	        var radius = 50;
-	        // In case the status is OK, which means the pano was found, compute the
-	        // position of the streetview image, then calculate the heading, then get a
-	        // panorama from that and set the options
 	        var getStreetView = function(data, status) {
 	            if (status == google.maps.StreetViewStatus.OK) {
 	              	var nearStreetViewLocation = data.location.latLng;
@@ -283,8 +275,7 @@ var AppViewModel = function() {
 				  handleVenueDataError(marker);
 	            }
 	          };
-	          // Use streetview service to get the closest streetview image within
-	          // 50 meters of the markers position
+	          // Use streetview service to get the closest streetview image 
 	          streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
 	          // Open the infowindow on the correct marker.
 	          infowindow.open(map, marker);
@@ -303,8 +294,6 @@ var AppViewModel = function() {
 
 		} else {
 			return ko.utils.arrayFilter(self.locationList(), function(place) {
-				// Hide the marker when the text input doesn't match the place name and show the marker 
-				// with the closest place name
 				if (place.name.toLowerCase().indexOf(filter) !== -1) {	
 					place.marker.setVisible(true);
 				} else {
@@ -347,7 +336,7 @@ var AppViewModel = function() {
 		}
 	}
 
-	// This function will make the marker bounce when you click on them
+	// This function will make the marker bounce on click
 	function toggleBounce(marker) {
        	if (marker.getAnimation() !== null) {
             marker.setAnimation(null);
@@ -367,9 +356,7 @@ var AppViewModel = function() {
 	    markers = [];
  	} 
 
- 	// This function takes in a COLOR, and then creates a new marker
-    // icon of that color. The icon will be 21 px wide by 34 high, have an origin
-    // of 0, 0 and be anchored at 10, 34).
+ 	// creates marker with callback color and sets size
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
        	  'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
