@@ -1,31 +1,36 @@
-Project: whatToDoApp | Global
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Iqr6_3PuALs/0.jpg)](https://www.youtube.com/watch?v=Iqr6_3PuALs)
+<h1> whatToDoApp | Global </h1>
+<hr></hr>
 
 
 Authors: Michael Benefiel | Billy Hodes | Spencer Knoll
 
-Why we created this project:
-
-Homework for the University of Kansas Coding Boot Camp.
-
 Feel free to use some or all of this code if you're trying to complete a similar project.
+<hr></hr>
+<h3> Click below to watch the demo on YouTube </h3>
 
-THE PROJECT
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Iqr6_3PuALs/0.jpg)](https://www.youtube.com/watch?v=Iqr6_3PuALs)
 
-FourSquare API
+<hr></hr>
+<h2> How it works </h2>
+Type in what you're looking for. Type in your city. Hit submit. Watch the map markers drop. Easy as that.
+<hr></hr>
+<h2>THE PROJECT</h2>
 
-GoogleMaps API
+[FourSquare API](https://developer.foursquare.com/)
 
-Bootstrap v4.0.0-alpha.6 
+[GoogleMaps API](https://cloud.google.com/maps-platform/)
 
-Font Awesome 3.0.2
+[Bootstrap v4.0.0-alpha.6 ](http://getbootstrap.com/)
 
-jQuery JavaScript Library v2.0.3
+[Font Awesome 3.0.2](https://fontawesome.com/)
 
-Knockout-3.2.0.js
+[jQuery JavaScript Library v2.0.3](https://jquery.com/)
 
-Firebase 5.5.2
+[Knockout-3.2.0.js](https://knockoutjs.com/)
+
+[Firebase 5.5.2](https://firebase.google.com/)
+<hr></hr>
+<h4>Below is a thorough, but not comprehensive, step-by-step process of how I got the app running in terms of code</h4>
 
 - Initialize Firebase
 
