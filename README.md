@@ -1,5 +1,8 @@
 Project: whatToDoApp | Global
 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Iqr6_3PuALs/0.jpg)](https://www.youtube.com/watch?v=Iqr6_3PuALs)
+
+
 Authors: Michael Benefiel | Billy Hodes | Spencer Knoll
 
 Why we created this project:
