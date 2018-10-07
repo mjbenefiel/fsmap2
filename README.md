@@ -14,7 +14,7 @@ Feel free to use some or all of this code if you're trying to complete a similar
 <h2> How it works </h2>
 Type in what you're looking for. Type in your city. Hit submit. Watch the map markers drop. Easy as that.
 <hr></hr>
-<h2>THE PROJECT</h2>
+<h2>Technology Used</h2>
 
 [FourSquare API](https://developer.foursquare.com/)
 
