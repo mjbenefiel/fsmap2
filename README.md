@@ -10,6 +10,8 @@ Feel free to use some or all of this code if you're trying to complete a similar
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Iqr6_3PuALs/0.jpg)](https://www.youtube.com/watch?v=Iqr6_3PuALs)
 
+<h2> Project overview</h2>
+FourSquare, simplified. This app utilizes Knockout.js, the FourSquare API to process venue data, and the Google Maps API for all the map features you know and love.
 <hr></hr>
 <h2> How it works </h2>
 Type in what you're looking for. Type in your city. Hit submit. Watch the map markers drop. Easy as that.
