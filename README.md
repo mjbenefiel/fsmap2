@@ -5,7 +5,7 @@ Live version: https://mjbenefiel.github.io/whatToDoApp/
 <hr></hr>
 
 
-Authors: Michael Benefiel | Billy Hodes | Spencer Knoll
+Author: Michael Benefiel 
 
 Feel free to use some or all of this code if you're trying to complete a similar project.
 <hr></hr>
